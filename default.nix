@@ -8,7 +8,7 @@ stdenv.mkDerivation {
   phases = [ "installPhase" ];
 
   installPhase = ''
-    mkdir -p $out
-    tar xzvf $src -C $out
+    mkdir -p $out/html
+    tar xzvf $src -C $out/html
   '';
 }
