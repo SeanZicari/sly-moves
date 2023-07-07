@@ -3,9 +3,12 @@ with pkgs;
 stdenv.mkDerivation {
   name = "sly-moves";
 
-  src = ./src;
+  src = ./site.tar.gz;
 
-  builder = ./builder.sh;
+  phases = [ "installPhase" ];
 
-  nativeBuildInputs = [ coreutils ];
+  installPhase = ''
+    mkdir -p $out
+    tar xzvf $src -C $out
+  '';
 }
